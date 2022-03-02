@@ -1,5 +1,6 @@
 import ChannelComponent from "./ChannelComponent"
 
+import searchIcon from "../../../assets/icons/searchIcon.svg";
 const ChannelListComponent = () => {
 	return (
 		<div className="channels">
@@ -10,16 +11,19 @@ const ChannelListComponent = () => {
 				</button>
 			</div>
 			<form className="channels__form">
-				<input
-					type="text"
-					autoComplete="off"
-					placeholder="Search"
-					className="channels__input"
-				/>
+				<div className="channels__input-field">
+					<img src={searchIcon} alt="search"/>
+					<input
+						type="text"
+						autoComplete="off"
+						placeholder="Search"
+						className="channels__input"
+					/>
+				</div>
 				<ul className="channels__list">
 					{
-						[1,2,3,4,5].map((value, i) => (
-							<ChannelComponent key={i}/>
+						[1,2,3,4,5].map((value ) => (
+							<ChannelComponent key={value}/>
 						))
 					}
 				</ul>

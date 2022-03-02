@@ -1,2 +1,8 @@
-.chat-flex {
+.chat-flex{
+	position: relative;
+}
+@media (min-width: $tablets) {
+	.chat-flex {
+		display: flex;
+	}
 }
