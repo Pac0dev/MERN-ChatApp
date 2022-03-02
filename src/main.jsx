@@ -1,4 +1,4 @@
 import ReactDOM from 'react-dom'
-import ChatApp from './ChatApp';
+import App from './App';
 
-ReactDOM.render(<ChatApp/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));

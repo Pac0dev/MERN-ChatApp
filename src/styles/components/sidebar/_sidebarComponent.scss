@@ -1,0 +1,42 @@
+.aside {
+	position: absolute;
+	width: 85%;
+	height: 100vh;
+	max-height: 100vh;
+	min-height: 100vh;
+
+	background-color: $secondary;
+
+	overflow-y: scroll;
+
+	font-size: $medium;
+
+	.channels {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		padding-top: .5em;
+		padding-left: .5em;
+		padding-right: .5em;
+
+	}
+}
+.channels__top-bar {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.channels__add-channel {
+	width: 2rem;
+	height: 2rem;
+
+	background-color: lighten($color: $primary, $amount: 25);
+	color: $white;
+	font-size: 2rem;
+}
+.channels__list {
+	padding-left: 0;
+}

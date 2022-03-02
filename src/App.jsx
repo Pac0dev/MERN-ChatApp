@@ -1,9 +1,9 @@
 import AppRouter from "./routes/AppRouter"
-
-const ChatApp = () => {
+import './styles/style.scss';
+const App = () => {
 	return (
 		<AppRouter/>
 	)
 }
 
-export default ChatApp
+export default App

@@ -1,18 +1,16 @@
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import SidebarComponent from "../component/SidebarComponent";
-import ChatScreen from "../screen/ChatScreen";
+import {BrowserRouter as Router,Switch} from "react-router-dom"
+import ChatScreen from "../screens/chat/ChatScreen.jsx";
 import AuthRouter from "./AuthRouter";
 import PrivateRouter from "./PrivateRouter"
 import PublicRouter from "./PublicRouter";
 
 const AppRouter = () => {
-	const isLogged = false;
+	const isLogged = true;
 	return (
 		<Router>
 			<div>
 				<Switch>
 					<PrivateRouter exact path="/" isLogged={isLogged}>
-						<SidebarComponent/>
 						<ChatScreen/>
 					</PrivateRouter>
 					<PublicRouter path="/auth" isLogged={isLogged}>
