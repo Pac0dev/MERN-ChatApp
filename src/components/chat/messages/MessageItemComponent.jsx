@@ -4,7 +4,7 @@ const MessageItemComponent = () => {
 			<div className="message">
 				<img className="message__img"/>
 				<div className="message__content">
-					<div className="message__top">
+					<div className="message__top gray-color">
 						<span className="message__sender">
 							Gabriel
 						</span>
