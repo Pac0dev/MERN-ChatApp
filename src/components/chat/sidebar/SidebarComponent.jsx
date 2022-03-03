@@ -2,10 +2,9 @@ import { useState } from "react";
 import ChannelDetailComponent from "./ChannelDetailComponent";
 import ChannelListComponent from "./ChannelListComponent";
 import downIcon from "../../../assets/icons/downIcon.svg";
-const SidebarComponent = () => {
+const SidebarComponent = ({isAsideOpen, setIsAsideOpen}) => {
 
 	const [isChannelSelected, setIsChannelSelected] = useState(true);
-	const [isAsideOpen, setIsAsideOpen] = useState(true);
 
 	const renderComponentByFlag = () => {
 		return isChannelSelected === true ? <ChannelDetailComponent/> : <ChannelListComponent/>;
