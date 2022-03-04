@@ -5,7 +5,7 @@ import PrivateRouter from "./PrivateRouter"
 import PublicRouter from "./PublicRouter";
 
 const AppRouter = () => {
-	const isLogged = true;
+	const isLogged = false;
 	return (
 		<Router>
 			<div>
