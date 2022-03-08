@@ -1,10 +1,22 @@
+import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
+import {startLoginWithEmailPassword} from "../../actions/auth";
 import emailIcon from "../../assets/icons/emailIcon.svg";
 import lockIcon from "../../assets/icons/lockIcon.svg";
 const LoginComponent = () => {
+
+	const dispatch = useDispatch();
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		dispatch(startLoginWithEmailPassword('kranfftufffff@gmail.com', '1234'));
+	}
 	return (
 		<>
-			<form className="auth__form">
+			<form 
+				className="auth__form"
+				onSubmit={handleSubmit}
+			>
 				<legend className="title fw-bold">Login</legend>
 				<div className="auth__form-field">
 					<input type="email" name="email" placeholder="Email" autoComplete="off"/>
