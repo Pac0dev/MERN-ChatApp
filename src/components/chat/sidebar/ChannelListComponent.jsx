@@ -1,7 +1,16 @@
 import ChannelComponent from "./ChannelComponent"
 
 import searchIcon from "../../../assets/icons/searchIcon.svg";
+import {useSelector} from "react-redux";
 const ChannelListComponent = () => {
+	const channels = useSelector(state => state.chat.channels);
+
+	const renderChannels = () => {
+		if(channels.length > 0) {
+			return channels.map((channel) => (<ChannelComponent key={channel._id} channel={channel}/>))
+		}
+		return <h3>No channels created yet</h3>
+	}
 	return (
 		<div className="channels">
 			<div className="channels__top-bar">
@@ -22,9 +31,7 @@ const ChannelListComponent = () => {
 				</div>
 				<ul className="channels__list">
 					{
-						[1,2,3,4,5].map((value ) => (
-							<ChannelComponent key={value}/>
-						))
+						renderChannels()
 					}
 				</ul>
 			</form>

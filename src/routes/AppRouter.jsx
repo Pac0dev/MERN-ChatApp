@@ -7,17 +7,18 @@ import PrivateRouter from "./PrivateRouter"
 import PublicRouter from "./PublicRouter";
 
 const AppRouter = () => {
-	const token = useSelector((state) => state.auth);
+	const {uid} = useSelector((state) => state.auth);
 	const [isLogged, setIsLogged] = useState(false);
 
+
 	useEffect(() => {
-		const token = localStorage.getItem('token') || '';
-		if(token.trim().length > 5) {
+		if(uid.trim().length > 5) {
 			setIsLogged(true);
+			localStorage.setItem('token', uid);
 		} else {
 			setIsLogged(false);
 		}
-	}, [token]);
+	}, [uid]);
 
 	return (
 		<Router>

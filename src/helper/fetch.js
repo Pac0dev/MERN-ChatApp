@@ -15,6 +15,24 @@ const postFetch = async (dataToSent, endpoint) => {
 		return err;
 	}
 }
+const getFetch = async (endpoint, token) => {
+	const fetchConf = {
+		method: 'GET',
+		headers: {
+			'token': token,
+		}
+	};
+	try {
+		const finalUrl = import.meta.env.VITE_BASE_URL + endpoint;
+		
+		const response = await fetch(finalUrl, fetchConf);
+		const data = await response.json();
+		return data;
+	} catch ( err ) {
+		return err;
+	}
+}
 export {
 	postFetch,
+	getFetch,
 }

@@ -12,7 +12,6 @@ const startLoginWithEmailPassword = (userEmail, userPassword) => {
 				.then((res) => {
 					const {token, user:{username}} = res;
 					dispatch(login(token, username));
-					localStorage.setItem('token', token);
 				})
 				.catch((err) => {
 					console.warn(err);

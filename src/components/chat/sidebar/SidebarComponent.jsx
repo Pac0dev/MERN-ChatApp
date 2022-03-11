@@ -2,12 +2,13 @@ import { useState } from "react";
 import ChannelDetailComponent from "./ChannelDetailComponent";
 import ChannelListComponent from "./ChannelListComponent";
 import downIcon from "../../../assets/icons/downIcon.svg";
+import {useSelector} from "react-redux";
 const SidebarComponent = ({isAsideOpen, setIsAsideOpen}) => {
 
-	const [isChannelSelected, setIsChannelSelected] = useState(true);
+	const selectedChannel = useSelector(state => state.chat.selectedChannel);
 
 	const renderComponentByFlag = () => {
-		return isChannelSelected === true ? <ChannelDetailComponent/> : <ChannelListComponent/>;
+		return selectedChannel === null ? <ChannelListComponent/> : <ChannelDetailComponent/>;
 	}
 
 	return (
