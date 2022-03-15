@@ -13,7 +13,6 @@ const chatReducer = (state = initialState, action = {}) => {
 				channels: action.payload,
 			}
 		case types.selectSingleChannel: 
-			console.log(action.payload);
 			return {
 				...state,
 				selectedChannel: action.payload,
@@ -22,6 +21,11 @@ const chatReducer = (state = initialState, action = {}) => {
 			return {
 				...state,
 				selectedChannel: null,
+			}
+		case types.updateMessages: 
+			return {
+				...state, 
+				messages: [...state.messages, action.payload]
 			}
 		default: 
 			return state;

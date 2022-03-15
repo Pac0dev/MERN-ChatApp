@@ -16,7 +16,9 @@ const AppRouter = () => {
 			setIsLogged(true);
 			localStorage.setItem('token', uid);
 		} else {
-			setIsLogged(false);
+			if(localStorage.getItem('token') === null)
+				setIsLogged(false);
+			else setIsLogged(true);
 		}
 	}, [uid]);
 

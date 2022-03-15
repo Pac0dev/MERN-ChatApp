@@ -4,15 +4,18 @@ import {getChannels} from "../../actions/chat";
 import MessageComponent from "../../components/chat/messages/MessageComponent"
 import SidebarComponent from "../../components/chat/sidebar/SidebarComponent"
 import {getFetch} from "../../helper/fetch";
+import getChannelsId from "../../helper/getChannelsId";
+import useSocket from "../../hooks/useSocket";
 
 const ChatScreen = () => {
 
 	const [isAsideOpen, setIsAsideOpen] = useState(false);
+	const socket = useSocket(import.meta.env.VITE_DOMAIN, localStorage.getItem('token') || '');
 	const dispatch = useDispatch();
-
+	const {channels} = useSelector(state => state.chat);
+	
 	useEffect(() => {
 		const token = localStorage.getItem('token') || '';
-		console.log(token);
 		getFetch('/chat/get-channels', token)
 			.then((result) => {
 				if(result.channels === undefined || result.channels === null) {
@@ -26,10 +29,17 @@ const ChatScreen = () => {
 			.catch(console.warn);
 	}, [dispatch]);
 
+	useEffect(() => {
+		if(channels.length > 0) {
+			const roomsId = getChannelsId(channels);
+			socket.emit('room-sent', {roomsId : roomsId});
+		}
+	}, [channels]);
+
 	return (
 		<div className="chat-flex">
-			<SidebarComponent isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen}/>
-			<MessageComponent setIsAsideOpen={setIsAsideOpen}/>
+			<SidebarComponent isAsideOpen={isAsideOpen} setIsAsideOpen={setIsAsideOpen} socket={socket}/>
+			<MessageComponent setIsAsideOpen={setIsAsideOpen} socket={socket}/>
 		</div>
 	)
 }

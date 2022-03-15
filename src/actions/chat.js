@@ -13,6 +13,11 @@ const getChannels = (channels) => {
 	}
 }
 
+const updateMessages = (message = '') => ({
+	type: types.updateMessages,
+	payload: message,
+})
+
 const unselectChannel = () => ({
 	type: types.unselectSingleChannel,
 })
@@ -20,4 +25,5 @@ export {
 	getChannels,
 	selectChannel,
 	unselectChannel,
+	updateMessages,
 }

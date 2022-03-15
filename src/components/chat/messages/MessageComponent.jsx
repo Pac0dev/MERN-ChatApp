@@ -1,7 +1,7 @@
 import menuIcon from "../../../assets/icons/menuIcon.svg";
 import MessageInputComponent from "./MessageInputComponent";
 import MessageListComponent from "./MessageListComponent";
-const MessageComponent = ({setIsAsideOpen}) => {
+const MessageComponent = ({setIsAsideOpen, socket}) => {
 	return(
 		<main className="messages">
 			<div className="messages__top-bar">
@@ -11,7 +11,7 @@ const MessageComponent = ({setIsAsideOpen}) => {
 			<div className="messages__messages-container">
 				<MessageListComponent/>
 			</div>
-			<MessageInputComponent/>
+			<MessageInputComponent socket={socket}/>
 		</main>
 	)
 }

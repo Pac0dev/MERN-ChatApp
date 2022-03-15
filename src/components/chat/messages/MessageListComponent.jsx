@@ -1,11 +1,12 @@
+import {useSelector} from "react-redux";
 import MessageItemComponent from "./MessageItemComponent"
 
 const MessageListComponent = () => {
-	let array = [3,3,3,3,3,3,3];
+	const messages = useSelector(state => state.chat.messages);
 	return (
 		<ul className="messages__list">
 			{
-				array.map((value, i) => (<MessageItemComponent key={i}/>))
+				messages?.map((message, i) => (<MessageItemComponent key={i} message={message}/>))
 			}
 		</ul>
 	)

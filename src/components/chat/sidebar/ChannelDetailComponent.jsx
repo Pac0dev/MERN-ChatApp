@@ -5,9 +5,13 @@ import {unselectChannel} from "../../../actions/chat";
 const ChannelDetailComponent = () => {
 	const selectedChannel = useSelector(s => s.chat.selectedChannel);
 	const dispatch = useDispatch();
+
 	const handleBackClick = () => {
 		dispatch(unselectChannel())
 	};
+
+	console.log(selectedChannel.users);
+
 	return (
 		<div className="channel">
 			<div className="channel__top-bar">

@@ -1,4 +1,5 @@
-const MessageItemComponent = () => {
+const MessageItemComponent = ({message}) => {
+	const {text, date, username} = message;
 	return (
 		<li className="messages__item">
 			<div className="message">
@@ -6,17 +7,14 @@ const MessageItemComponent = () => {
 				<div className="message__content">
 					<div className="message__top gray-color">
 						<span className="message__sender">
-							Gabriel
+							{username}
 						</span>
 						<span className="message__date">
-							 12. may. 2022
+							{date}
 						</span>
 					</div>
 					<div className="message__text">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Saepe quisquam earum tenetur quidem dicta est assumenda,
-						veniam fugiat quis aliquid fugit quam illum aspernatur
-						molestias. Voluptates vero pariatur eligendi recusandae?
+						{text}
 					</div>
 				</div>
 			</div>

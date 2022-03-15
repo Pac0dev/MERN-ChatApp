@@ -5,5 +5,6 @@ const types = {
 	getChannels: '[CHAT] get-channels',
 	selectSingleChannel: '[CHAT] select-channel',
 	unselectSingleChannel: '[CHAT] unselect-channel',
+	updateMessages: '[CHAT] get-update-messages',
 }
 export default types;
