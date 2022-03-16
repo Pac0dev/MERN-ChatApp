@@ -14,11 +14,9 @@ const AppRouter = () => {
 	useEffect(() => {
 		if(uid.trim().length > 5) {
 			setIsLogged(true);
-			localStorage.setItem('token', uid);
 		} else {
-			if(localStorage.getItem('token') === null)
-				setIsLogged(false);
-			else setIsLogged(true);
+			setIsLogged(false);
+			localStorage.removeItem('token');
 		}
 	}, [uid]);
 

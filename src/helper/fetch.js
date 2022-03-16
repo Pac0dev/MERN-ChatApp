@@ -1,8 +1,10 @@
-const postFetch = async (dataToSent, endpoint) => {
+const postFetch = async (dataToSent, endpoint ) => {
+	const token = localStorage.getItem('token') || '';
 	const fetchConf = {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'token': token,
 		},
 		body: JSON.stringify(dataToSent),
 	};
@@ -10,12 +12,14 @@ const postFetch = async (dataToSent, endpoint) => {
 		const baseUrl = import.meta.env.VITE_BASE_URL;
 		const response = await fetch(baseUrl + endpoint, fetchConf);
 		const data = await response.json();
-		return data;
+		return {...data};
 	} catch( err ) {
 		return err;
 	}
 }
-const getFetch = async (endpoint, token) => {
+const getFetch = async (endpoint) => {
+	const token = localStorage.getItem('token') || '';
+	console.log(token);
 	const fetchConf = {
 		method: 'GET',
 		headers: {
@@ -27,7 +31,7 @@ const getFetch = async (endpoint, token) => {
 		
 		const response = await fetch(finalUrl, fetchConf);
 		const data = await response.json();
-		return data;
+		return {...data, status: response.status};
 	} catch ( err ) {
 		return err;
 	}

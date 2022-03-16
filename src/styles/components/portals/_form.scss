@@ -1,0 +1,47 @@
+.portal__form {
+	width: 90%;
+	max-width: 42rem;
+	height: 20rem;
+	padding: 1em;
+
+	background-color: #120F13;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.portal__form-title {
+	margin-bottom: 1em;
+	text-transform: uppercase;
+}
+.portal__form-field {
+	margin-bottom: 1em;
+	input, textarea {
+		width: 100%;
+		
+
+		overflow: hidden;
+		background-color: $light-gray;
+		border-radius: 8px;
+		border: none;
+		color: $white;
+		&:focus {
+			outline: none;
+		}
+	}
+	input {
+		height: 3rem;
+		padding: .5em 0 .5em .5em;
+	}
+	textarea {
+		height: 8rem;
+		resize: none;
+		padding: .5em 0 .5em .5em;
+	}
+	input[type="submit"] {
+		cursor: pointer;
+		background-color: $blue;
+		&:hover {
+			background-color: darken($color: $blue, $amount: 20);
+			color: #fff;
+		}
+	}
+}

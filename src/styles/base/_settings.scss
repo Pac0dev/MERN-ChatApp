@@ -30,3 +30,18 @@ img {
 .fw-bold {font-weight: bold;}
 .up-case{text-transform: uppercase;}
 .gray-color{color: #828282}
+
+.portal {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left:0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #222;
+	opacity: .95;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getChannels} from "../../actions/chat";
+import {useHistory} from "react-router-dom";
+import {startGettingChannels} from "../../actions/chat";
 import MessageComponent from "../../components/chat/messages/MessageComponent"
 import SidebarComponent from "../../components/chat/sidebar/SidebarComponent"
 import {getFetch} from "../../helper/fetch";
@@ -13,20 +14,10 @@ const ChatScreen = () => {
 	const socket = useSocket(import.meta.env.VITE_DOMAIN, localStorage.getItem('token') || '');
 	const dispatch = useDispatch();
 	const {channels} = useSelector(state => state.chat);
+	const history = useHistory();
 	
 	useEffect(() => {
-		const token = localStorage.getItem('token') || '';
-		getFetch('/chat/get-channels', token)
-			.then((result) => {
-				if(result.channels === undefined || result.channels === null) {
-					localStorage.setItem('token', '');
-					history.back();
-				} else {
-					console.log(result.channels);
-					dispatch(getChannels(result.channels));
-				}
-			})
-			.catch(console.warn);
+		dispatch(startGettingChannels())
 	}, [dispatch]);
 
 	useEffect(() => {

@@ -27,6 +27,11 @@ const chatReducer = (state = initialState, action = {}) => {
 				...state, 
 				messages: [...state.messages, action.payload]
 			}
+		case types.createChannel: 
+			return {
+				...state,
+				channels: [...state.channels, action.payload],
+			}
 		default: 
 			return state;
 	}

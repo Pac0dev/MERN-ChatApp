@@ -1,7 +1,7 @@
 import types from "../types/types";
 
 const initialState = {
-	uid: '',
+	uid: localStorage.getItem('token') || '',
 	username: '',
 }
 const authReducer = (state = initialState, action = {}) =>  {
